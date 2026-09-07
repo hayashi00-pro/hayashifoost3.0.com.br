@@ -1,976 +1,681 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hayashi's Foost</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #090909;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* ===== MENU ===== */
-
-        header {
-            min-height: 70px;
-            background: #0b0b0b;
-            border-bottom: 1px solid #292929;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 7%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            font-size: 34px;
-        }
-
-        .logo h2 {
-            font-size: 20px;
-            white-space: nowrap;
-        }
-
-        .logo h2 span {
-            color: #ff2029;
-        }
-
-        .logo p {
-            color: #aaa;
-            font-size: 11px;
-            margin-top: 3px;
-        }
-
-        nav {
-            display: flex;
-            gap: 45px;
-        }
-
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 25px 0;
-            border-bottom: 2px solid transparent;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: #ff2029;
-            border-bottom: 2px solid #ff2029;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .cart-top {
-            font-size: 26px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .cart-number {
-            position: absolute;
-            top: -6px;
-            right: -10px;
-
-            width: 19px;
-            height: 19px;
-
-            background: #e9232b;
-            border-radius: 50%;
-
-            font-size: 11px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .menu-toggle span {
-            width: 24px;
-            height: 2px;
-            background: #ddd;
-            display: block;
-        }
-
-        .mobile-nav {
-            display: none;
-            flex-direction: column;
-            background: #0b0b0b;
-            border-bottom: 1px solid #292929;
-        }
-
-        .mobile-nav.open {
-            display: flex;
-        }
-
-        .mobile-nav a {
-            color: #ddd;
-            text-decoration: none;
-            font-size: 15px;
-            padding: 16px 7%;
-            border-bottom: 1px solid #202020;
-        }
-
-        .mobile-nav a:hover,
-        .mobile-nav a.active {
-            color: #ff2029;
-        }
-
-        /* ===== BANNER ===== */
-
-        .hero {
-            min-height: 460px;
-
-            display: flex;
-            align-items: center;
-
-            padding: 0 7%;
-
-            position: relative;
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(5,5,5,1) 0%,
-                    rgba(5,5,5,.92) 35%,
-                    rgba(5,5,5,.25) 100%
-                ),
-                url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1800&q=90");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-content {
-            max-width: 470px;
-            z-index: 2;
-            animation: entrada 1s ease;
-        }
-
-        .hero-small {
-            color: #ff2029;
-            letter-spacing: 6px;
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            line-height: 1.08;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #ff2029;
-        }
-
-        .hero p {
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .hero-button {
-            display: inline-block;
-            padding: 15px 30px;
-
-            background: #ed222b;
-            color: white;
-
-            text-decoration: none;
-            border-radius: 30px;
-
-            font-weight: bold;
-
-            transition: .25s;
-        }
-
-        .hero-button:hover {
-            background: #ff3941;
-            transform: translateY(-2px);
-        }
-
-        /* ===== CONTEÚDO ===== */
-
-        .content {
-            max-width: 1150px;
-            margin: 55px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            margin-bottom: 25px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-        }
-
-        .section-title p {
-            color: #999;
-            margin-top: 8px;
-        }
-
-        .shop {
-            display: grid;
-            grid-template-columns: 1fr 315px;
-            gap: 40px;
-            align-items: start;
-        }
-
-        /* ===== PRODUTOS ===== */
-
-        .products {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .product {
-            background: #0d0d0d;
-            border: 1px solid #292929;
-            border-radius: 12px;
-            overflow: hidden;
-
-            transition: .3s;
-        }
-
-        .product:hover {
-            transform: translateY(-5px);
-            border-color: #444;
-        }
-
-        .product-image {
-            height: 190px;
-            overflow: hidden;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-
-            transition: .4s;
-        }
-
-        .product:hover img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 18px;
-        }
-
-        .product-info h3 {
-            font-size: 17px;
-            margin-bottom: 10px;
-        }
-
-        .product-info p {
-            color: #999;
-            font-size: 13px;
-            line-height: 1.5;
-            min-height: 40px;
-        }
-
-        .price {
-            color: #ff252d;
-            font-size: 21px;
-            font-weight: bold;
-            margin: 18px 0;
-        }
-
-        .add-button {
-            width: 100%;
-            border: none;
-
-            background: #ed222b;
-            color: white;
-
-            padding: 13px;
-            border-radius: 25px;
-
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 14px;
-
-            transition: .2s;
-        }
-
-        .add-button:hover {
-            background: #ff3b42;
-        }
-
-        /* ===== CARRINHO ===== */
-
-        .cart {
-            background: #0d0d0d;
-            border: 1px solid #303030;
-            border-radius: 12px;
-
-            padding: 20px;
-
-            height: fit-content;
-
-            position: sticky;
-            top: 90px;
-        }
-
-        .cart-title {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding-bottom: 18px;
-            border-bottom: 1px solid #292929;
-        }
-
-        .cart-title h2 {
-            font-size: 19px;
-        }
-
-        .cart-badge {
-            background: #ed222b;
-            border-radius: 20px;
-            padding: 5px 10px;
-            font-size: 12px;
-        }
-
-        #cart-items {
-            min-height: 180px;
-            padding-top: 15px;
-        }
-
-        .empty-cart {
-            text-align: center;
-            color: #777;
-            padding: 60px 0;
-        }
-
-        .empty-cart .icon {
-            font-size: 45px;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .cart-item {
-            border-bottom: 1px solid #252525;
-            padding: 12px 0;
-
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .cart-item h4 {
-            font-size: 13px;
-        }
-
-        .cart-item span {
-            color: #ff252d;
-            font-size: 13px;
-        }
-
-        .remove {
-            background: none;
-            border: none;
-            color: #777;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        .remove:hover {
-            color: #ff252d;
-        }
-
-        .total {
-            border-top: 1px solid #292929;
-            padding-top: 20px;
-
-            display: flex;
-            justify-content: space-between;
-
-            font-size: 17px;
-            font-weight: bold;
-        }
-
-        .checkout {
-            width: 100%;
-            margin-top: 20px;
-
-            padding: 14px;
-
-            border: none;
-            border-radius: 25px;
-
-            background: #333;
-            color: #777;
-
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .checkout.active {
-            background: #ed222b;
-            color: white;
-        }
-
-        /* ===== RODAPÉ ===== */
-
-        footer {
-            margin-top: 80px;
-            padding: 35px 7%;
-
-            border-top: 1px solid #292929;
-
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: space-between;
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* ===== ANIMAÇÕES ===== */
-
-        @keyframes entrada {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .product {
-            animation: entrada .8s ease;
-        }
-
-        /* ===== TABLET ===== */
-
-        @media (max-width: 900px) {
-
-            .shop {
-                grid-template-columns: 1fr;
-            }
-
-            .cart {
-                position: static;
-            }
-        }
-
-        /* ===== CELULAR ===== */
-
-        @media (max-width: 800px) {
-
-            header {
-                padding: 0 20px;
-                flex-wrap: wrap;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .logo p {
-                display: none;
-            }
-
-            .hero {
-                min-height: 420px;
-                padding: 0 25px;
-                text-align: left;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .products {
-                grid-template-columns: 1fr;
-            }
-
-            .content {
-                margin: 40px auto;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 420px) {
-
-            .logo h2 {
-                font-size: 17px;
-            }
-
-            .logo-icon {
-                font-size: 28px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero-small {
-                letter-spacing: 4px;
-            }
-
-            .hero-button {
-                padding: 13px 24px;
-                font-size: 14px;
-            }
-
-            .section-title h2 {
-                font-size: 26px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hayashi's Foost | Combos</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --vermelho: #e63946;
+      --vermelho-escuro: #b91c2a;
+      --laranja: #ff8c00;
+      --verde: #25d366;
+      --branco: #ffffff;
+      --cinza: #b8b8b8;
+      --fundo: #0b0b0d;
+      --card: #151519;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      color: var(--branco);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(230, 57, 70, 0.18), transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(255, 140, 0, 0.12), transparent 35%),
+        var(--fundo);
+    }
+
+    /* HEADER */
+
+    header {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 55px 20px 45px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(230,57,70,0.18),
+          rgba(0,0,0,0.35)
+        );
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: rgba(230,57,70,0.15);
+      filter: blur(100px);
+      border-radius: 50%;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .logo {
+      position: relative;
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      color: var(--vermelho);
+    }
+
+    header p {
+      position: relative;
+      margin-top: 12px;
+      color: var(--cinza);
+      font-size: 17px;
+    }
+
+    /* CONTAINER */
+
+    .container {
+      width: min(1050px, 92%);
+      margin: 45px auto;
+    }
+
+    .titulo {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .titulo h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .titulo p {
+      color: var(--cinza);
+    }
+
+    /* PRODUTOS */
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .produto {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border-radius: 22px;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.025)
+      );
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, border 0.25s ease;
+    }
+
+    .produto::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: rgba(230,57,70,0.14);
+      border-radius: 50%;
+      filter: blur(55px);
+      right: -70px;
+      top: -70px;
+    }
+
+    .produto:hover {
+      transform: translateY(-6px);
+      border-color: rgba(230,57,70,0.45);
+    }
+
+    .icone {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .produto h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .descricao {
+      color: var(--cinza);
+      line-height: 1.5;
+      min-height: 48px;
+    }
+
+    .preco {
+      font-size: 30px;
+      font-weight: 900;
+      margin: 22px 0;
+    }
+
+    .preco small {
+      font-size: 15px;
+      color: var(--cinza);
+      font-weight: normal;
+    }
+
+    /* BOTÕES */
+
+    button {
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .adicionar {
+      width: 100%;
+      padding: 15px;
+      border-radius: 13px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(
+        135deg,
+        var(--vermelho),
+        var(--vermelho-escuro)
+      );
+      transition: 0.2s;
+    }
+
+    .adicionar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(230,57,70,0.25);
+    }
+
+    .adicionar:active {
+      transform: scale(0.98);
+    }
+
+    /* CARRINHO */
+
+    .carrinho {
+      margin-top: 30px;
+      padding: 28px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+
+    .carrinho-topo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .carrinho-topo h2 {
+      font-size: 25px;
+    }
+
+    .contador {
+      background: rgba(230,57,70,0.15);
+      color: #ff7b85;
+      border: 1px solid rgba(230,57,70,0.25);
+      padding: 7px 12px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    #carrinhoVazio {
+      padding: 20px 0;
+      color: var(--cinza);
+      text-align: center;
+    }
+
+    .item-carrinho {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-nome {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .item-preco {
+      color: var(--cinza);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .remover {
+      width: auto;
+      padding: 8px 12px;
+      border-radius: 9px;
+      color: white;
+      background: rgba(230,57,70,0.15);
+      border: 1px solid rgba(230,57,70,0.25);
+      transition: 0.2s;
+    }
+
+    .remover:hover {
+      background: var(--vermelho);
+    }
+
+    /* TOTAL */
+
+    .total-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 25px;
+      gap: 20px;
+    }
+
+    .total-label {
+      color: var(--cinza);
+      font-size: 15px;
+    }
+
+    .total {
+      font-size: 29px;
+      font-weight: 900;
+    }
+
+    /* FINALIZAR */
+
+    .finalizar {
+      width: 100%;
+      margin-top: 22px;
+      padding: 17px;
+      border-radius: 14px;
+      background: var(--verde);
+      color: #071b0d;
+      font-size: 17px;
+      font-weight: 900;
+      transition: 0.2s;
+    }
+
+    .finalizar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(37,211,102,0.25);
+      background: #30e875;
+    }
+
+    .finalizar:active {
+      transform: scale(0.98);
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 42px 15px 35px;
+      }
+
+      .produtos {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        width: 94%;
+        margin: 30px auto;
+      }
+
+      .produto {
+        padding: 23px;
+      }
+
+      .carrinho {
+        padding: 22px;
+      }
+
+      .total-area {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .item-carrinho {
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- MENU -->
+  <header>
+    <div class="logo">🍔 hayashi's <span>foost</span> 🌭</div>
+    <p>Combos preparados para matar sua fome.</p>
+  </header>
 
-    <header>
+  <main class="container">
 
-        <div class="logo">
-            <div class="logo-icon">🍔</div>
-
-            <div>
-                <h2>Hayashi's <span>Foost</span></h2>
-                <p>Sabor em cada mordida</p>
-            </div>
-        </div>
-
-        <nav>
-            <a href="#" class="active">Início</a>
-            <a href="#cardapio">Cardápio</a>
-            <a href="#carrinho">Carrinho</a>
-        </nav>
-
-        <div class="header-actions">
-
-            <div class="cart-top" onclick="document.getElementById('carrinho').scrollIntoView({behavior:'smooth'})">
-                🛒
-                <div class="cart-number" id="top-number">0</div>
-            </div>
-
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-        </div>
-
-    </header>
-
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="#" class="active" onclick="toggleMenu()">Início</a>
-        <a href="#cardapio" onclick="toggleMenu()">Cardápio</a>
-        <a href="#carrinho" onclick="toggleMenu()">Carrinho</a>
+    <div class="titulo">
+      <h2>Escolha seu combo</h2>
+      <p>Adicione seus favoritos ao carrinho.</p>
     </div>
 
+    <section class="produtos">
 
-    <!-- BANNER -->
+      <!-- COMBO CACHORRO-QUENTE -->
 
-    <section class="hero">
+      <article class="produto">
 
-        <div class="hero-content">
+        <div class="icone">🌭</div>
 
-            <div class="hero-small">
-                FAST FOOD DE VERDADE
-            </div>
+        <h3>Combo Cachorro-Quente</h3>
 
-            <h1>
-                O sabor que<br>
-                <span>você ama!</span>
-            </h1>
+        <p class="descricao">
+          Cachorro-quente + Coca-Cola 600ml
+        </p>
 
-            <p>
-                Combos incríveis, ingredientes de qualidade
-                e o melhor do fast food, tudo em um só lugar.
-            </p>
-
-            <a href="#cardapio" class="hero-button">
-                Ver cardápio →
-            </a>
-
+        <div class="preco">
+          R$ 20,00
         </div>
+
+        <button
+          class="adicionar"
+          onclick="adicionarCarrinho(
+            'Cachorro-quente + Coca-Cola 600ml',
+            20
+          )"
+        >
+          🛒 Adicionar ao carrinho
+        </button>
+
+      </article>
+
+
+      <!-- COMBO HAMBÚRGUER -->
+
+      <article class="produto">
+
+        <div class="icone">🍔</div>
+
+        <h3>Combo Hambúrguer</h3>
+
+        <p class="descricao">
+          Hambúrguer + Guaraná 300ml
+        </p>
+
+        <div class="preco">
+          R$ 18,00
+        </div>
+
+        <button
+          class="adicionar"
+          onclick="adicionarCarrinho(
+            'Hambúrguer + Guaraná 300ml',
+            18
+          )"
+        >
+          🛒 Adicionar ao carrinho
+        </button>
+
+      </article>
 
     </section>
 
 
-    <!-- CARDÁPIO -->
+    <!-- CARRINHO -->
 
-    <main class="content" id="cardapio">
+    <section class="carrinho">
 
-        <div class="section-title">
+      <div class="carrinho-topo">
 
-            <h2>Nossos Combos</h2>
+        <h2>🛒 Seu carrinho</h2>
 
-            <p>
-                Escolha seu favorito e adicione ao carrinho.
-            </p>
-
+        <div class="contador">
+          <span id="contador">0</span> item(s)
         </div>
 
+      </div>
 
-        <div class="shop">
+      <div id="itensCarrinho">
 
-            <div class="products">
+        <p id="carrinhoVazio">
+          Seu carrinho está vazio.
+        </p>
 
-                <!-- COMBO 1 -->
+      </div>
 
-                <div class="product">
 
-                    <div class="product-image">
+      <div class="total-area">
 
-                        <img
-                            src="https://images.unsplash.com/photo-1612392062631-94dd858cba88?auto=format&fit=crop&w=800&q=85"
-                            alt="Cachorro quente"
-                        >
+        <div class="total-label">
+          Total do pedido
+        </div>
 
-                    </div>
+        <div class="total">
+          R$ <span id="total">0,00</span>
+        </div>
 
-                    <div class="product-info">
+      </div>
 
-                        <h3>
-                            Cachorro Quente + Coca-Cola 600ml
-                        </h3>
 
-                        <p>
-                            Nosso delicioso cachorro quente
-                            com uma Coca-Cola gelada de 600ml.
-                        </p>
+      <button
+        class="finalizar"
+        onclick="finalizarPedido()"
+      >
+        📲 Finalizar pedido pelo WhatsApp
+      </button>
 
-                        <div class="price">
-                            R$ 20,00
-                        </div>
+    </section>
 
-                        <button
-                            class="add-button"
-                            onclick="addToCart('Cachorro Quente + Coca-Cola 600ml', 20)"
-                        >
-                            🛒 Adicionar ao carrinho
-                        </button>
+  </main>
 
-                    </div>
 
+  <footer>
+    Hayashi's Foost © 2026 · Feito com carinho 🍔
+  </footer>
+
+
+  <script>
+
+    let carrinho = [];
+
+
+    // ADICIONAR PRODUTO
+
+    function adicionarCarrinho(nome, preco) {
+
+      carrinho.push({
+        nome: nome,
+        preco: preco
+      });
+
+      atualizarCarrinho();
+
+    }
+
+
+    // REMOVER PRODUTO
+
+    function removerItem(index) {
+
+      carrinho.splice(index, 1);
+
+      atualizarCarrinho();
+
+    }
+
+
+    // ATUALIZAR CARRINHO
+
+    function atualizarCarrinho() {
+
+      const areaCarrinho =
+        document.getElementById("itensCarrinho");
+
+      const totalElemento =
+        document.getElementById("total");
+
+      const contador =
+        document.getElementById("contador");
+
+
+      areaCarrinho.innerHTML = "";
+
+
+      let total = 0;
+
+
+      if (carrinho.length === 0) {
+
+        areaCarrinho.innerHTML = `
+          <p id="carrinhoVazio">
+            Seu carrinho está vazio.
+          </p>
+        `;
+
+      } else {
+
+        carrinho.forEach(function(item, index) {
+
+          total += item.preco;
+
+          areaCarrinho.innerHTML += `
+
+            <div class="item-carrinho">
+
+              <div class="item-info">
+
+                <div class="item-nome">
+                  ${item.nome}
                 </div>
 
-
-                <!-- COMBO 2 -->
-
-                <div class="product">
-
-                    <div class="product-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=85"
-                            alt="Hambúrguer"
-                        >
-
-                    </div>
-
-                    <div class="product-info">
-
-                        <h3>
-                            Hambúrguer + Guaraná 300ml
-                        </h3>
-
-                        <p>
-                            Hambúrguer suculento com
-                            batata frita e Guaraná 300ml.
-                        </p>
-
-                        <div class="price">
-                            R$ 18,00
-                        </div>
-
-                        <button
-                            class="add-button"
-                            onclick="addToCart('Hambúrguer + Guaraná 300ml', 18)"
-                        >
-                            🛒 Adicionar ao carrinho
-                        </button>
-
-                    </div>
-
+                <div class="item-preco">
+                  R$ ${item.preco.toFixed(2).replace(".", ",")}
                 </div>
+
+              </div>
+
+              <button
+                class="remover"
+                onclick="removerItem(${index})"
+              >
+                Remover
+              </button>
 
             </div>
 
+          `;
 
-            <!-- CARRINHO -->
+        });
 
-            <aside class="cart" id="carrinho">
+      }
 
-                <div class="cart-title">
 
-                    <h2>🛒 Seu carrinho</h2>
+      totalElemento.innerText =
+        total.toFixed(2).replace(".", ",");
 
-                    <span class="cart-badge" id="cart-count">
-                        0
-                    </span>
 
-                </div>
+      contador.innerText =
+        carrinho.length;
 
+    }
 
-                <div id="cart-items">
 
-                    <div class="empty-cart">
+    // FINALIZAR PEDIDO
 
-                        <span class="icon">
-                            🛒
-                        </span>
+    function finalizarPedido() {
 
-                        <p>
-                            Seu carrinho está vazio
-                        </p>
+      if (carrinho.length === 0) {
 
-                        <small>
-                            Adicione algo delicioso!
-                        </small>
+        alert(
+          "Seu carrinho está vazio! Adicione algum combo antes de finalizar."
+        );
 
-                    </div>
+        return;
 
-                </div>
+      }
 
 
-                <div class="total">
+      let mensagem =
+        "🍔 *NOVO PEDIDO - HAYASHI'S FOOST* 🍔\n\n";
 
-                    <span>Total</span>
 
-                    <span id="total">
-                        R$ 0,00
-                    </span>
+      mensagem += "📋 *Itens do pedido:*\n\n";
 
-                </div>
 
+      let total = 0;
 
-                <button
-                    class="checkout"
-                    id="checkout"
-                    onclick="finalizarPedido()"
-                >
-                    Finalizar pedido →
-                </button>
 
-            </aside>
+      carrinho.forEach(function(item, index) {
 
-        </div>
+        mensagem +=
+          `${index + 1}. ${item.nome} - R$ ${item.preco
+            .toFixed(2)
+            .replace(".", ",")}\n`;
 
-    </main>
+        total += item.preco;
 
+      });
 
-    <!-- RODAPÉ -->
 
-    <footer>
+      mensagem +=
+        `\n💰 *TOTAL: R$ ${total
+          .toFixed(2)
+          .replace(".", ",")}*`;
 
-        <div>
-            🍔 <strong>Hayashi's Foost</strong>
-        </div>
 
-        <div>
-            Comida boa, sempre!
-        </div>
+      mensagem +=
+        "\n\n📲 Pedido enviado pelo site.";
 
-        <div>
-            Instagram &nbsp; Facebook &nbsp; WhatsApp
-        </div>
 
-    </footer>
+      /*
+        Número do WhatsApp:
+        +55 41 98853-8567
 
+        No link usamos apenas números.
+      */
 
-    <script>
+      const telefone =
+        "5541988538567";
 
-        let cart = [];
 
-        function toggleMenu() {
-            const nav = document.getElementById("mobile-nav");
-            nav.classList.toggle("open");
-        }
+      const url =
+        "https://wa.me/" +
+        telefone +
+        "?text=" +
+        encodeURIComponent(mensagem);
 
-        function addToCart(name, price) {
 
-            cart.push({
-                name: name,
-                price: price
-            });
+      window.open(url, "_blank");
 
-            updateCart();
-        }
+    }
 
-
-        function removeFromCart(index) {
-
-            cart.splice(index, 1);
-
-            updateCart();
-        }
-
-
-        function updateCart() {
-
-            const items = document.getElementById("cart-items");
-
-            const count = document.getElementById("cart-count");
-
-            const topNumber = document.getElementById("top-number");
-
-            const totalElement = document.getElementById("total");
-
-            const checkout = document.getElementById("checkout");
-
-
-            count.textContent = cart.length;
-
-            topNumber.textContent = cart.length;
-
-
-            if (cart.length === 0) {
-
-                items.innerHTML = `
-                    <div class="empty-cart">
-                        <span class="icon">🛒</span>
-                        <p>Seu carrinho está vazio</p>
-                        <small>Adicione algo delicioso!</small>
-                    </div>
-                `;
-
-                totalElement.textContent = "R$ 0,00";
-
-                checkout.classList.remove("active");
-
-                return;
-            }
-
-
-            let total = 0;
-
-            items.innerHTML = "";
-
-
-            cart.forEach((item, index) => {
-
-                total += item.price;
-
-                items.innerHTML += `
-
-                    <div class="cart-item">
-
-                        <div>
-                            <h4>${item.name}</h4>
-                            <span>
-                                R$ ${item.price.toFixed(2).replace(".", ",")}
-                            </span>
-                        </div>
-
-                        <button
-                            class="remove"
-                            onclick="removeFromCart(${index})"
-                        >
-                            remover
-                        </button>
-
-                    </div>
-
-                `;
-            });
-
-
-            totalElement.textContent =
-                "R$ " + total.toFixed(2).replace(".", ",");
-
-
-            checkout.classList.add("active");
-        }
-
-
-        function finalizarPedido() {
-
-            if (cart.length === 0) {
-
-                alert("Adicione algum produto ao carrinho!");
-
-                return;
-            }
-
-
-            let mensagem = "Pedido realizado! 🍔\n\n";
-
-            cart.forEach(item => {
-
-                mensagem +=
-                    "• " + item.name +
-                    " - R$ " +
-                    item.price.toFixed(2).replace(".", ",") +
-                    "\n";
-
-            });
-
-
-            alert(mensagem);
-
-            cart = [];
-            updateCart();
-        }
-
-    </script>
+  </script>
 
 </body>
 </html>
+```
