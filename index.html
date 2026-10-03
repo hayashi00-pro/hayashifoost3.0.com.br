@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DuoClinic Estética | Beleza, Cuidado e Bem-Estar</title>
+<meta name="description" content="Conheça a DuoClinic Estética. Tratamentos estéticos personalizados, tecnologia e cuidado para valorizar sua beleza e bem-estar.">
+<meta property="og:title" content="DuoClinic Estética | Beleza, Cuidado e Bem-Estar">
+<meta property="og:description" content="Tratamentos estéticos personalizados, tecnologia e cuidado para valorizar sua beleza e bem-estar.">
+<meta property="og:type" content="website">
+<!-- TROCAR: <meta property="og:image" content="URL-DA-IMAGEM"> e <link rel="canonical" href="https://SEU-DOMINIO.com.br/"> -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235f8497'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23f4efe4' font-family='serif'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"DuoClinic Estética","description":"Clínica de estética e bem-estar com tratamentos personalizados.","telephone":"[TELEFONE]","address":{"@type":"PostalAddress","streetAddress":"[ENDEREÇO]"}}</script>
+<style>
+:root{--bg:#f6f8f8;--nude:#e5edf0;--nude2:#cfdce3;--olive:#3f6a82;--olive-d:#254658;--gold:#a98a56;--ink:#23261f;--mut:#6a6d62;--r:14px;
+--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+main,footer{position:relative;z-index:1}
+.bglogo{position:fixed;inset:0;z-index:0;display:grid;place-items:center;pointer-events:none;overflow:hidden}
+.bglogo svg{width:min(80vmin,720px);height:auto;filter:blur(12px);opacity:.2}
+body{font:400 1.0625rem/1.65 var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(4.5rem,9vw,8rem) 0}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.1;letter-spacing:-.01em}
+h1{font-size:clamp(2.8rem,7vw,5.6rem)}
+h2{font-size:clamp(2rem,4.2vw,3.3rem);margin-bottom:1.1rem}
+h3{font-size:1.45rem;font-weight:400}
+.lead{color:var(--mut);max-width:56ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.8rem 1.7rem;border-radius:999px;border:1px solid var(--olive);background:var(--olive);color:#fff;font:600 .95rem var(--sans);text-decoration:none;cursor:pointer;transition:background .3s,color .3s,transform .3s}
+.btn:hover{background:var(--olive-d);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--olive)}
+.btn.ghost:hover{background:var(--olive);color:#fff}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#1b2f3b}
+.ph{position:relative;display:grid;place-items:center;text-align:center;padding:1rem;border-radius:var(--r);color:var(--olive-d);font-size:.85rem;background:linear-gradient(160deg,var(--nude),var(--nude2));overflow:hidden}
+.ph::after{content:"";position:absolute;inset:10px;border:1px dashed rgba(63,106,130,.35);border-radius:calc(var(--r) - 4px)}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .4s,box-shadow .4s}
+header.solid{background:rgba(246,248,248,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(0,0,0,.07)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:76px;gap:1rem}
+.logo{font:300 1.5rem var(--serif);text-decoration:none;color:var(--olive-d)}
+.logo small{display:block;font:500 .62rem var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:-2px}
+nav ul{display:flex;gap:1.6rem;list-style:none;padding:0}
+nav a{text-decoration:none;font-size:.92rem;font-weight:500;padding:.4rem 0;background:linear-gradient(var(--gold),var(--gold)) 0 100%/0 1px no-repeat;transition:background-size .3s}
+nav a:hover{background-size:100% 1px}
+.burger{display:none;width:48px;height:48px;border:0;background:none;cursor:pointer}
+.burger span,.burger span::before,.burger span::after{display:block;width:24px;height:2px;background:var(--olive-d);margin:auto;position:relative;content:"";transition:transform .3s}
+.burger span::before{top:-7px}.burger span::after{top:5px}
+.mob-cta{display:none}
+/* hero */
+.hero{min-height:100svh;display:grid;align-items:center;padding:8rem 0 4rem;background:radial-gradient(60% 50% at 85% 30%,rgba(229,237,240,.8) 0,transparent 70%);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.hero p.lead{margin:1.5rem 0 2rem;font-size:1.15rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.tags{margin-top:1.6rem;font-size:.9rem;color:var(--mut)}
+.hero-img{aspect-ratio:4/5;border-radius:220px 220px var(--r) var(--r);will-change:transform}
+.hero-img.ph::after{border-radius:210px 210px 10px 10px}
+
+/* about */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.split .ph{aspect-ratio:1/1.05}
+.marks{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2rem;margin-top:2rem;list-style:none;padding:0}
+.marks li{padding-top:.8rem;border-top:1px solid var(--gold);font-weight:500}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 24px rgba(37,70,88,.06);display:flex;flex-direction:column;transition:transform .4s,box-shadow .4s}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(37,70,88,.12)}
+.card .ph{border-radius:0;aspect-ratio:3/2}
+.card div.b{padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.card svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.card p{color:var(--mut);font-size:.98rem;flex:1}
+.card ul{color:var(--mut);font-size:.9rem;padding-left:1.1rem}
+.link{background:none;border:0;padding:.5rem 0;font:600 .95rem var(--sans);color:var(--olive);cursor:pointer;text-align:left;min-height:44px}
+.link:hover{color:var(--gold)}
+/* why */
+.dark{background:rgba(37,70,88,.93);color:#f4efe4}
+.dark h2{color:#fff}.dark .lead{color:#d3dfe5}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin:3rem 0 2.5rem}
+.why div{border-top:1px solid rgba(184,151,90,.6);padding-top:1.2rem}
+.why b{font:300 2.2rem var(--serif);color:var(--gold);display:block}
+.why h3{margin:.3rem 0 .6rem;font-size:1.25rem}
+.why p{color:#d3dfe5;font-size:.96rem}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:1rem;margin-top:2.5rem}
+.gal button{border:0;padding:0;background:none;cursor:zoom-in;display:block}
+.gal .ph{height:100%;transition:transform .5s}.gal button:hover .ph{transform:scale(.98)}
+.gal button:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal button:nth-child(4){grid-row:span 2}
+/* results/testimonials */
+.soft{background:rgba(229,237,240,.8)}
+.note{font-size:.85rem;color:var(--mut);margin-top:1.5rem}
+.slot{border:1px dashed var(--olive);border-radius:var(--r);padding:2rem;color:var(--mut);background:rgba(255,255,255,.5)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.stars{color:var(--gold);letter-spacing:.15em}
+.t{background:#fff;border-radius:var(--r);padding:1.8rem;display:grid;gap:.8rem}
+.who{display:flex;gap:.8rem;align-items:center;font-weight:600}
+.av{width:44px;height:44px;border-radius:50%;background:var(--nude2)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem;position:relative;list-style:none;padding:0}
+.steps::before{content:"";position:absolute;left:8%;right:8%;top:22px;height:1px;background:var(--gold)}
+.steps li{position:relative;text-align:center;padding:0 .5rem}
+.steps i{display:grid;place-items:center;width:44px;height:44px;margin:0 auto 1rem;border-radius:50%;background:var(--bg);border:1px solid var(--gold);font:400 1.1rem var(--serif);font-style:normal;color:var(--olive-d)}
+.cta{text-align:center}.cta .lead{margin:0 auto 2rem}
+/* faq */
+.faq{max-width:780px;margin:2.5rem auto 0}
+details{border-bottom:1px solid var(--nude2)}
+summary{list-style:none;cursor:pointer;padding:1.2rem 0;font:400 1.3rem var(--serif);display:flex;justify-content:space-between;gap:1rem;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 1.3rem;color:var(--mut)}
+/* contact */
+.info{list-style:none;padding:0;display:grid;gap:1rem;margin-top:1.8rem}
+.info b{display:block;font-size:.85rem;color:var(--gold)}
+form{display:grid;gap:1rem;background:#fff;padding:2rem;border-radius:var(--r);box-shadow:0 2px 24px rgba(37,70,88,.08)}
+label{font-size:.88rem;font-weight:600;display:grid;gap:.35rem}
+input,select,textarea{font:inherit;padding:.85rem 1rem;border:1px solid var(--nude2);border-radius:10px;background:var(--bg);min-height:48px;width:100%}
+.map{aspect-ratio:21/7;min-height:200px;margin-top:3rem}
+.ig{display:grid;grid-template-columns:repeat(6,1fr);gap:.8rem;margin:2rem 0}.ig .ph{aspect-ratio:1}
+/* footer */
+footer{background:rgba(37,70,88,.96);color:#d3dfe5;padding:4rem 0 2rem;font-size:.95rem}
+footer .g{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2rem}
+footer h3{color:#fff;font-size:1.1rem;margin-bottom:.8rem}
+footer ul{list-style:none;padding:0;display:grid;gap:.3rem}
+footer a{text-decoration:none}footer a:hover{color:var(--gold)}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:2.5rem;padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-size:.85rem}
+/* float + dialogs */
+.wa{position:fixed;right:max(1rem,env(safe-area-inset-right,0px));bottom:max(1rem,env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:.6rem;background:#2e7d57;color:#fff;border-radius:999px;padding:.9rem;text-decoration:none;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.wa svg{width:26px;height:26px;fill:#fff}
+.wa span{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .4s,margin .4s}
+.wa:hover span,.wa:focus-visible span{max-width:200px;margin:0 .6rem 0 .2rem}
+dialog{border:0;border-radius:var(--r);padding:0;width:min(560px,92vw);max-height:88vh;overflow:auto;background:var(--bg)}
+dialog::backdrop{background:rgba(35,38,31,.6)}
+dialog[open]{animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}}
+.dl{padding:2rem;display:grid;gap:1rem}.dl h4{font:600 .95rem var(--sans);color:var(--olive)}.dl p,.dl li{color:var(--mut);font-size:.98rem}
+.x{justify-self:end;border:0;background:var(--nude);width:44px;height:44px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.lb{width:min(900px,94vw)}.lb .ph{aspect-ratio:3/2;border-radius:0}
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}.rv.in{opacity:1;transform:none}
+@media(max-width:900px){
+nav{position:fixed;inset:0 0 0 auto;width:min(320px,86vw);background:var(--bg);padding:6rem 2rem;transform:translateX(100%);transition:transform .4s;box-shadow:-10px 0 30px rgba(0,0,0,.1)}
+nav.open{transform:none}nav ul{flex-direction:column;gap:.6rem}nav a{font-size:1.2rem;display:block;padding:.6rem 0}
+.burger{display:block;order:3}.bar>.btn.desk{display:none}
+.mob-cta{display:inline-flex;min-height:44px;padding:.5rem 1.1rem;margin-left:auto}
+.hero .wrap,.split,.cards,.tgrid,footer .g{grid-template-columns:1fr}
+.hero-img{max-width:420px;aspect-ratio:1/1.1}
+.why,.steps{grid-template-columns:1fr 1fr}.steps::before{display:none}
+.gal{grid-template-columns:1fr 1fr}.ig{grid-template-columns:repeat(3,1fr)}
+.btn{width:100%}.btns{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bglogo" aria-hidden="true"><svg viewBox="0 0 200 200" fill="none" stroke="#5f8497" stroke-width="7" stroke-linecap="round"><path d="M62 38v124h38a62 62 0 0 0 0-124z"/><path d="M100 70v38a32 32 0 0 0 64 0V70"/><circle cx="30" cy="160" r="3.500" fill="#5f8497"/></svg></div>
+<a href="#sobre" class="btn" style="position:absolute;left:-999px" onfocus="this.style.left='1rem'">Ir ao conteúdo</a>
+<header id="hd"><div class="wrap bar">
+<a class="logo" href="#inicio" aria-label="DuoClinic Estética, início">DuoClinic<small>Estética</small></a>
+<nav id="nav" aria-label="Principal"><ul>
+<li><a href="#inicio">Início</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#tratamentos">Tratamentos</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#resultados">Resultados</a></li><li><a href="#depoimentos">Depoimentos</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contato">Contato</a></li></ul></nav>
+<a class="btn desk wa-link" data-m="Olá! Gostaria de agendar uma avaliação na DuoClinic Estética." href="#">Agendar avaliação</a>
+<a class="btn mob-cta wa-link" data-m="Olá! Gostaria de agendar uma avaliação na DuoClinic Estética." href="#">Agendar</a>
+<button class="burger" id="bg" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+</div></header>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap"><div>
+<h1>Realce sua beleza. Cuide de você.</h1>
+<p class="lead">Tratamentos estéticos personalizados, tecnologia e cuidado para você se sentir ainda melhor com quem você é.</p>
+<div class="btns"><a class="btn wa-link" data-m="Olá! Gostaria de agendar uma avaliação na DuoClinic Estética." href="#">Agendar avaliação</a><a class="btn ghost" href="#tratamentos">Conhecer tratamentos</a></div>
+<p class="tags">Atendimento personalizado &nbsp;•&nbsp; Tecnologia &nbsp;•&nbsp; Bem-estar</p></div>
+<div class="ph hero-img" id="hi" role="img" aria-label="Espaço para foto principal da clínica">Foto principal<br>(cliente em atendimento ou ambiente da clínica)</div></div></section>
+
+<section id="sobre"><div class="wrap split">
+<div class="rv"><h2>Cuidado que valoriza a sua essência.</h2>
+<p class="lead">A DuoClinic Estética nasceu para proporcionar uma experiência completa de cuidado, beleza e bem-estar. Unimos atendimento personalizado, conhecimento e tecnologia para desenvolver protocolos pensados de acordo com as necessidades de cada pessoa.</p>
+<ul class="marks"><li>Atendimento personalizado</li><li>Tecnologia e inovação</li><li>Protocolos personalizados</li><li>Experiência e cuidado</li></ul></div>
+<div class="ph" role="img" aria-label="Espaço para foto da clínica ou profissional">Foto da clínica / profissional</div></div></section>
+
+<section id="tratamentos" class="soft"><div class="wrap">
+<h2 class="rv">Tratamentos pensados para você</h2>
+<p class="lead">Conheça os serviços da DuoClinic em estética facial e corporal.</p>
+<div class="cards" id="cards"></div>
+<p style="margin-top:2.5rem"><a class="btn wa-link" data-m="Olá! Gostaria de saber mais sobre os tratamentos da DuoClinic." href="#">Falar no WhatsApp</a></p></div></section>
+
+<section id="diferenciais" class="dark"><div class="wrap">
+<h2 class="rv">Por que escolher a DuoClinic?</h2>
+<div class="why">
+<div><b>01</b><h3>Atendimento personalizado</h3><p>Cada pessoa possui necessidades diferentes. Por isso, nossos cuidados são pensados de forma individualizada.</p></div>
+<div><b>02</b><h3>Experiência</h3><p>Um ambiente preparado para proporcionar conforto, segurança e bem-estar.</p></div>
+<div><b>03</b><h3>Tecnologia</h3><p>Recursos modernos aliados a protocolos cuidadosamente planejados.</p></div>
+<div><b>04</b><h3>Cuidado em cada detalhe</h3><p>Do primeiro atendimento ao acompanhamento, sua experiência é nossa prioridade.</p></div></div>
+<a class="btn gold wa-link" data-m="Olá! Gostaria de agendar uma avaliação na DuoClinic Estética." href="#">Agendar avaliação</a></div></section>
+
+<section id="experiencia"><div class="wrap">
+<h2 class="rv">Mais do que estética. Uma experiência de cuidado.</h2>
+<p class="lead">Ambiente pensado para o seu conforto, atendimento atencioso e acolhimento em cada etapa: da recepção ao final do protocolo.</p>
+<div class="gal" id="gal"></div></div></section>
+
+<section id="resultados" class="soft"><div class="wrap">
+<h2 class="rv">Resultados que contam histórias</h2>
+<div class="slot"><b>Espaço reservado para antes e depois.</b><br>Adicione aqui apenas imagens reais, com autorização das clientes.</div>
+<p class="note">Resultados podem variar de acordo com cada pessoa.</p></div></section>
+
+<section id="depoimentos"><div class="wrap">
+<h2 class="rv">Experiências de quem já passou por aqui</h2>
+<div class="tgrid" id="tg"></div>
+<p style="margin-top:2.5rem"><a class="btn ghost wa-link" data-m="Olá! Quero conhecer a DuoClinic e agendar uma avaliação." href="#">Falar com a DuoClinic</a></p></div></section>
+
+<section class="soft"><div class="wrap">
+<h2 class="rv">Seu cuidado começa aqui</h2>
+<ol class="steps"><li><i>1</i><h3>Entre em contato</h3></li><li><i>2</i><h3>Agende sua avaliação</h3></li><li><i>3</i><h3>Conheça o protocolo ideal para você</h3></li><li><i>4</i><h3>Comece sua jornada de cuidado</h3></li></ol></div></section>
+
+<section class="dark cta"><div class="wrap">
+<h2>Pronta para começar a cuidar de você?</h2>
+<p class="lead">Converse com nossa equipe e descubra quais tratamentos podem fazer sentido para seus objetivos.</p>
+<a class="btn gold wa-link" data-m="Olá! Gostaria de conversar com a equipe da DuoClinic." href="#">Falar com a DuoClinic</a></div></section>
+
+<section id="faq"><div class="wrap">
+<h2 class="rv" style="text-align:center">Perguntas frequentes</h2>
+<div class="faq" id="fq"></div></div></section>
+
+<section id="contato" class="soft"><div class="wrap split" style="align-items:start">
+<div><h2 class="rv">Vamos conversar?</h2>
+<p class="lead">Escolha o canal que for mais confortável para você.</p>
+<ul class="info">
+<li><b>WhatsApp</b><a class="wa-link" data-m="Olá!" href="#">[WHATSAPP DA CLÍNICA]</a></li>
+<li><b>Instagram</b>[@INSTAGRAM DA CLÍNICA]</li>
+<li><b>Endereço</b>[ENDEREÇO DA CLÍNICA]</li>
+<li><b>Horário de atendimento</b>[HORÁRIOS]</li>
+<li><b>E-mail</b>[E-MAIL, SE HOUVER]</li></ul></div>
+<form id="f"><label>Nome<input name="n" required autocomplete="name"></label>
+<label>WhatsApp<input name="w" type="tel" required autocomplete="tel"></label>
+<label>E-mail<input name="e" type="email" autocomplete="email"></label>
+<label>Tratamento de interesse<select name="t"><option>Ainda não sei</option><option>Estética facial</option><option>Estética corporal</option></select></label>
+<label>Mensagem<textarea name="m" rows="3"></textarea></label>
+<button class="btn" type="submit">Enviar mensagem</button><p class="note" id="fs" role="status" style="margin:0"></p></form></div>
+<div class="wrap"><div class="ph map" role="img" aria-label="Espaço para mapa">Mapa será incorporado quando o endereço for informado</div>
+<p style="margin-top:1rem"><a class="btn ghost" id="route" href="#">Como chegar</a></p></div></section>
+
+<section><div class="wrap" style="text-align:center">
+<h2 class="rv">Acompanhe a DuoClinic</h2>
+<div class="ig" aria-label="Espaço para feed do Instagram"><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div></div>
+<a class="btn ghost" id="igl" href="#">Seguir no Instagram</a></div></section>
+</main>
+
+<footer><div class="wrap"><div class="g">
+<div><a class="logo" style="color:#fff" href="#inicio">DuoClinic<small>Estética</small></a><p style="margin-top:1rem">Beleza, cuidado e bem-estar em cada detalhe.</p></div>
+<div><h3>Navegação</h3><ul><li><a href="#inicio">Início</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#tratamentos">Tratamentos</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contato">Contato</a></li></ul></div>
+<div><h3>Contato</h3><ul><li><a class="wa-link" data-m="Olá!" href="#">WhatsApp</a></li><li>Instagram: [@INSTAGRAM]</li></ul></div>
+<div><h3>Visite</h3><ul><li>[ENDEREÇO]</li><li>[HORÁRIOS]</li></ul><p style="margin-top:1rem"><a class="btn gold wa-link" style="min-height:44px" data-m="Olá! Gostaria de agendar uma avaliação." href="#">Agendar avaliação</a></p></div></div>
+<div class="copy"><span>© 2026 DuoClinic Estética. Todos os direitos reservados.</span><span><a href="#">Política de Privacidade</a> &nbsp; <a href="#">Termos de Uso</a></span></div></div></footer>
+
+<a class="wa wa-link" data-m="Olá! Gostaria de falar com a DuoClinic." href="#" aria-label="Fale com a DuoClinic no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 13.7c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.1.1.300 0 .500l-.3.500-.4.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.4.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg><span>Fale com a DuoClinic</span></a>
+
+<dialog id="dm" aria-labelledby="dt"><div class="dl"><button class="x" aria-label="Fechar" onclick="dm.close()">×</button><h3 id="dt"></h3><div id="db"></div></div></dialog>
+<dialog id="dl" class="lb" aria-label="Imagem ampliada"><button class="x" style="position:absolute;right:.6rem;top:.6rem;z-index:2" aria-label="Fechar" onclick="dl.close()">×</button><div class="ph" id="li"></div></dialog>
+
+<script>
+/* ===== CONFIGURE AQUI: dados reais da clínica ===== */
+const CFG={whatsapp:"",/* ex.: 5541999999999 */ instagram:"",/* ex.: https://instagram.com/usuario */ endereco:"",/* para o botão Como chegar */ };
+const $=(s,r=document)=>r.querySelector(s);
+const wa=m=>CFG.whatsapp?`https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(m)}`:"#contato";
+document.querySelectorAll(".wa-link").forEach(a=>{a.href=wa(a.dataset.m);if(CFG.whatsapp){a.target="_blank";a.rel="noopener"}});
+$("#igl").href=CFG.instagram||"#contato";
+$("#route").href=CFG.endereco?"https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(CFG.endereco):"#contato";
+const ico='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-5-3-8-6.500-8-11a8 8 0 0 1 16 0c0 4.500-3 8-8 11zM12 21V9"/></svg>';
+const T=[
+{k:"Estética facial",d:"Cuidados para a pele e o aspecto do rosto, com protocolos definidos após avaliação.",l:["Botox","Preenchimento","Lavieen","Hydragloss","Limpeza de pele","Radiofrequência","Lipo de papada","Terapia capilar"]},
+{k:"Estética corporal",d:"Protocolos corporais pensados para bem-estar, conforto e cuidado com a pele.",l:["Depilação a laser","Massagem relaxante","Drenagem linfática","Lipo enzimática","Radiofrequência"]}];
+$("#cards").innerHTML=T.map((t,i)=>`<article class="card"><div class="ph" role="img" aria-label="Foto: ${t.k}">Foto: ${t.k}</div><div class="b">${ico}<h3>${t.k}</h3><p>${t.d}</p><ul>${t.l.slice(0,4).map(x=>`<li>${x}</li>`).join("")}</ul><button class="link" data-i="${i}">Saiba mais</button></div></article>`).join("");
+$("#cards").onclick=e=>{const b=e.target.closest("[data-i]");if(!b)return;const t=T[b.dataset.i];
+$("#dt").textContent=t.k;
+$("#db").innerHTML=`<p>${t.d}</p><h4>O que é</h4><p>Conjunto de cuidados de ${t.k.toLowerCase()} oferecidos pela clínica. <i>[Texto da clínica]</i></p><h4>Para quem é indicado</h4><p>Definido na avaliação, de acordo com as necessidades de cada pessoa. <i>[Texto da clínica]</i></p><h4>Benefícios</h4><p><i>[A clínica informa os benefícios de cada procedimento]</i></p><h4>Como funciona</h4><ul>${t.l.map(x=>`<li>${x}</li>`).join("")}</ul><h4>Duração aproximada</h4><p><i>[Informar duração]</i></p><p><a class="btn wa-link" style="margin-top:.5rem" href="${wa("Olá! Quero agendar uma avaliação para "+t.k+".")}">Quero agendar</a></p>`;
+dm.showModal()};
+const G=["Recepção","Sala de atendimento","Detalhe do ambiente","Equipamentos","Atendimento","Cuidado com a pele"];
+$("#gal").innerHTML=G.map(g=>`<button aria-label="Ampliar: ${g}"><div class="ph" role="img" aria-label="${g}">${g}</div></button>`).join("");
+$("#gal").onclick=e=>{const b=e.target.closest("button");if(!b)return;$("#li").textContent=b.textContent;dl.showModal()};
+[dm,dl].forEach(d=>d.addEventListener("click",e=>{if(e.target===d)d.close()}));
+$("#tg").innerHTML=[1,2,3].map(()=>`<div class="t"><div class="stars" aria-label="5 estrelas">★★★★★</div><p style="color:var(--mut)">[Depoimento real, com autorização da cliente]</p><div class="who"><span class="av"></span>[Nome da cliente]</div></div>`).join("");
+const F=[["Como funciona a avaliação?","Na avaliação, a equipe conversa com você para entender suas necessidades e indicar caminhos de cuidado. [A clínica detalha o formato]"],["Preciso agendar antes de ir à clínica?","Recomendamos agendar para garantir atendimento no melhor horário para você."],["Quais tratamentos vocês oferecem?","Trabalhamos com estética facial e estética corporal. Veja a seção de tratamentos ou fale conosco."],["Os tratamentos são personalizados?","Sim. Os protocolos são pensados de acordo com as necessidades de cada pessoa."],["Quanto tempo dura cada procedimento?","A duração varia conforme o tratamento. Informamos o tempo previsto no agendamento."],["Como saber qual tratamento é indicado para mim?","Na avaliação, nossa equipe ajuda a definir o protocolo ideal para você."],["Como faço para agendar?","Pelo botão Agendar avaliação, que abre uma conversa no WhatsApp, ou pelo formulário de contato."],["Vocês atendem pelo WhatsApp?","Sim. Clique em qualquer botão de WhatsApp do site para falar com a equipe."]];
+$("#fq").innerHTML=F.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("");
+$("#f").onsubmit=e=>{e.preventDefault();const d=new FormData(e.target);
+const m=`Olá! Meu nome é ${d.get("n")}. WhatsApp: ${d.get("w")}${d.get("e")?". E-mail: "+d.get("e"):""}. Interesse: ${d.get("t")}. ${d.get("m")}`;
+$("#fs").textContent=CFG.whatsapp?"Abrindo o WhatsApp para enviar sua mensagem…":"Formulário pronto. Falta informar o WhatsApp da clínica em CFG.whatsapp.";
+if(CFG.whatsapp)open(wa(m),"_blank","noopener")};
+const hd=$("#hd"),nav=$("#nav"),bg=$("#bg"),hi=$("#hi");
+addEventListener("scroll",()=>{hd.classList.toggle("solid",scrollY>40);if(innerWidth>900&&scrollY<900)hi.style.transform=`translateY(${scrollY*.04}px)`},{passive:true});
+bg.onclick=()=>{const o=nav.classList.toggle("open");bg.setAttribute("aria-expanded",o);bg.setAttribute("aria-label",o?"Fechar menu":"Abrir menu")};
+nav.onclick=e=>{if(e.target.tagName=="A"){nav.classList.remove("open");bg.setAttribute("aria-expanded",false)}};
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.2});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
